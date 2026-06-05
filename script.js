@@ -45,7 +45,7 @@ function renderAbout() {
         <div class="section-title">about</div>
         <div class="about-bio">
             hey, i'm <strong>divpreet</strong> — a developer who makes things on the internet.
-            i build stuff, break stuff, and occasionally fix stuff.
+            i build stuff, break stuff, and occasionally fix stuff, i also take part of hackclub events!
         </div>
         <div class="social-list">
             <a href="https://github.com/divpreeet" target="_blank" rel="noopener noreferrer" class="social-item">
