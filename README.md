@@ -1,15 +1,30 @@
 # divpreet
 
-![iamge](https://cloud-q5f8nfshj-hack-club-bot.vercel.app/0screen_shot_2025-02-05_at_3.18.22_am.png)
+personal portfolio. dark, minimal, t3.gg inspired.
 
-> This is a website about me that i made for a project in highseas! now this is my portfolio
+## sections
 
-## Tech Stack
-### Pretty simple! didnt want to overcomplicate it
-- HTML5
-- CSS
-- JS
+- **about** — bio + social links
+- **projects** — github repos (fetched from api)
+- **blog** — markdown posts
 
-idk what else to write ngl
+## adding a blog post
 
+1. create a `.md` file in `content/blog/` (e.g. `content/blog/my-post.md`)
+2. add an entry to `content/blog/index.json`:
 
+```json
+{ "slug": "my-post", "title": "My Post Title", "date": "2026-06-04", "desc": "short description" }
+```
+
+the slug must match the filename (without `.md`).
+
+## 88x31 buttons
+
+custom buttons (netflix, papers) are generated via canvas. everything else loads from `https://88x31.nl/gifs/`. add/edit in `script.js` under the `BUTTONS` array.
+
+## tech
+
+- vanilla html/css/js (no build tools)
+- github api for projects
+- markdown blog (simple regex parser, no dependencies)

@@ -2,72 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>divpreet</title>
+    <script>
+    (function(){
+        var img=new Image();
+        img.onload=function(){
+            var s=16,c=document.createElement('canvas'),ctx;
+            c.width=s;c.height=s;ctx=c.getContext('2d');
+            ctx.imageSmoothingEnabled=false;
+            ctx.drawImage(img,0,0,s,s);
+            var d=ctx.getImageData(0,0,s,s),p=d.data;
+            for(var i=0;i<p.length;i+=4){
+                var g=p[i]*0.3+p[i+1]*0.59+p[i+2]*0.11;
+                var v=g>128?255:0;
+                p[i]=v;p[i+1]=v;p[i+2]=v;
+            }
+            ctx.putImageData(d,0,0);
+            var l=document.createElement('link');
+            l.rel='icon';l.href=c.toDataURL();
+            document.head.appendChild(l);
+        };
+        img.src='shrek.png';
+    })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://pagering.gideon.sh/embed.js"></script>
+    <script type="module" src="script.js"></script>
 </head>
 <body>
-    <div class="hero-hidden">
-        <h2>hey! i'm</h2>
-        <h1 class="misspelled">divpreet</h1>
-        <h3>currently doing nothing</h3>
-    </div>
+    <canvas id="shrek-canvas"></canvas>
+    <main>
+        <header>
+            <h1>divpreet</h1>
+            <p class="tagline">currently doing nothing</p>
+        </header>
 
-    <section id="projects" class="section-hidden">
-        <h2>my fav projects</h2>
-        <h3 class="updates">these are the most recently updated projects!</h3>
-        <div class="projects-grid">
-            <!-- jsjsjsjsj -->
-        </div>
-    </section>
+        <nav class="social-links">
+            <a href="https://github.com/divpreeet" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://hackclub.slack.com/team/U0801PU0MTQ" target="_blank" rel="noopener noreferrer">slack</a>
+        </nav>
 
-    <section id="tech-stack" class="section-hidden">
-        <h2>my tech stack</h2>
-        <!--i love svgl-->
-        <div class="tech-grid">
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="python sucks, cpp better" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="js and python ez" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="html, nothing to say lol" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="css better than tailwind" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="i love apple" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" alt="still learning svelte" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma better without adobe" />
-            </div>
-            <div class="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg" alt="xcode sucks" />
-            </div>
-        </div>
-    </section>
+        <nav class="section-nav">
+            <button data-section="about">about</button>
+            <button data-section="projects">projects</button>
+            <button data-section="blog">blog</button>
+        </nav>
 
-    <!--github icon is hard to find, it sucks--> 
-    <footer class="section-hidden">
-        <p>wanna work with me?</p>
-        <div class="social-links">
-            <a href="https://github.com/divpreeet" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-            </a>
-            <a href="https://youtube.com/@bracedshorts" target="_blank" rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtube.svg" alt="YouTube" />
-            </a>
-            <a href="https://hackclub.slack.com/team/U0801PU0MTQ" target="_blank" rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/slack.svg" alt="Slack" />
-            </a>
-        </div>
-    </footer>
+        <div id="content"></div>
+
+        <footer>
+            <div id="badges"></div>
+            <div class="footer-meta">
+                <pagering-link theme="dark"></pagering-link>
+                <span class="built">built 2026</span>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>
