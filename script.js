@@ -2,7 +2,6 @@ let GITHUB_USER = 'divpreeet'
 let activeSection = null
 
 const BUTTONS = [
-    { file: null, custom: true, text: 'NETFLIX', bg: '#e50914', fg: '#fff', url: 'https://netflix.divpreet.org' },
     { file: null, custom: true, text: 'PAPERS', bg: '#f5f0e0', fg: '#2d2420', url: 'https://papers.divpreet.org' },
     { file: 'anybrowser.gif', alt: 'Best viewed with any browser', url: 'https://anybrowser.org/campaign/' },
     { file: 'construction.gif', alt: 'Under construction', url: null },
@@ -275,9 +274,11 @@ function animateShrek() {
         var wobble = Math.sin(sf * 0.07) * 0.06
         var f = shrekFrames[fi]
 
+        var sc = 3
         sCtx.save()
         sCtx.translate(sx, sy + bob)
         sCtx.rotate(wobble)
+        sCtx.scale(sc, sc)
         sCtx.translate(-8, -14)
         sCtx.drawImage(f, 0, 0)
         sCtx.restore()
